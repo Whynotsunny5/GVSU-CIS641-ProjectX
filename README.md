@@ -1,12 +1,11 @@
-# Team Name
+# ProjectX
 
-Project description (~1 paragraph)
+Art Gallery is a significant platform, seamlessly bringing together artists and a large community of art lovers. With the help of this platform, artists can promote their works while giving customers a simple way to find and buy one-of-a-kind items.
 
 ## Team Members and Roles
 
-* Member 1 (Role 1, Role 2)
+* [Haris Roshan](https://github.com/Whynotsunny5/CIS641-HW2-shaik)
 * Member 2 (Role 3, Role 4)
-* Member 3 (Role 5, Role 6)
 
 ## Prerequisites
 
