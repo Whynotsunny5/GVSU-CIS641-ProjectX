@@ -1,10 +1,10 @@
-Team name:
+Team name: ProjectX
 
-Team members:
+Team members: Haris Roshan Shaik 
 
 # Introduction
 
-(In 2-4 paragraphs, describe your project concept)
+Art Gallery is a significant platform, seamlessly bringing together artists and a large community of art lovers. With the help of this platform, artists can promote their works while giving customers a simple way to find and buy one-of-a-kind items.
 
 # Anticipated Technologies
 
