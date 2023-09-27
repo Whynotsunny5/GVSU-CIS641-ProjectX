@@ -5,7 +5,7 @@ Art Gallery is a significant platform, seamlessly bringing together artists and 
 ## Team Members and Roles
 
 * [Haris Roshan](https://github.com/Whynotsunny5/CIS641-HW2-shaik)
-* Member 2 (Role 3, Role 4)
+* [Tharun Jamal](https://github.com/Whynotsunny5/GVSU-CIS641-ProjectX)
 
 ## Prerequisites
 
