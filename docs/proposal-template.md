@@ -1,6 +1,6 @@
 Team name: ProjectX
 
-Team members: Haris Roshan Shaik 
+Team members: Haris Roshan Shaik , Tharun Jamal
 
 # Introduction
 
