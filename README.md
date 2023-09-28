@@ -1,19 +1,13 @@
-# Tharun Jamal
+# ProjectX
 
-## About me :
-I have completed my under graduation at the NRI Institute of Technology in India. After my under graduation, I got a job offer from Wipro but to improve my knowledge doing masters at GVSU might help.
+Art Gallery is a significant platform, seamlessly bringing together artists and a large community of art lovers. With the help of this platform, artists can promote their works while giving customers a simple way to find and buy one-of-a-kind items.
 
-## Interests:
-* Playing video games
-* Listening music
+## Team Members and Roles
 
-## Technical Background:
-* C
-* Javascript
-* Python
-* SQL
+* [Haris Roshan](https://github.com/Whynotsunny5/CIS641-HW2-shaik)
+* [Tharun Jamal](https://github.com/Whynotsunny5/GVSU-CIS641-ProjectX)
 
-## Contact:
-Email: mattakot@mail.gvsu.edu
+## Prerequisites
 
-Check out my favorite meme [Here](https://inboundrem.com/wp-content/uploads/2022/12/Funny-the-World-is-ending-and-realtors-are-still-selling-houses-with-Will-Ferrell-meme-1024x1024.jpg)
+## Run Instructions
+
