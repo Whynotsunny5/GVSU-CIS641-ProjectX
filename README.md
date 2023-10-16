@@ -1,1 +1,17 @@
+<<<<<<< HEAD
 # whynotsunny5.github.io
+=======
+# ProjectX
+
+Art Gallery is a significant platform, seamlessly bringing together artists and a large community of art lovers. With the help of this platform, artists can promote their works while giving customers a simple way to find and buy one-of-a-kind items.
+
+## Team Members and Roles
+
+* [Haris Roshan](https://github.com/Whynotsunny5/CIS641-HW2-shaik)
+* [Tharun Jamal](https://github.com/Whynotsunny5/GVSU-CIS641-ProjectX)
+
+## Prerequisites
+
+## Run Instructions
+https://whynotsunny5.github.io/GVSU-CIS641-ProjectX/
+>>>>>>> 2796819cf7922f185137587643c13d733467e713
