@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #d425b4;
     margin: 0;
     padding: 0;
 }
@@ -12,15 +12,15 @@ header, nav, section, footer {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #d3d615;
+    color: #d01c1c;
     text-align: center;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
-    background-color: #444;
+    background-color: #1275bc;
     overflow: hidden;
 }
 
