@@ -1,0 +1,75 @@
+Class: User
+
+Use Cases:
+
+Register to the platform
+Log in to the platform
+Update personal profile information
+Responsibility: Register, Login, Update profile
+
+Collaborator: Profile, Authentication
+
+Class: Profile
+
+Use Cases:
+
+View profile details
+View associated art listings (if an artist)
+Responsibility: Display user details, Link to art collections (for artists)
+
+Collaborator: User, ArtListing (for artists)
+
+Class: Artist (Subclass of User)
+
+Use Cases:
+
+Create a new art listing
+Edit existing art listing
+Remove an art listing
+Respond to buyer inquiries
+Responsibility: Create art listing, Update art listing, Delete art listing, Communicate with buyers
+Collaborator: ArtListing, Buyer
+
+Class: Buyer (Subclass of User)
+
+Use Cases:
+
+Browse available art listings
+Contact an artist regarding an art piece
+Complete a purchase of art
+Responsibility: Browse art listings, Communicate with artists, Purchase art
+
+Collaborator: Artist, ArtListing
+
+Class: ArtListing
+
+Use Cases:
+
+View details of a specific art piece
+Update art piece details (by artist)
+Responsibility: Display details (title, description, price), Update details
+
+Collaborator: Artist
+
+Class: Authentication
+
+Use Cases:
+
+Enter credentials for authentication
+Receive and input a one-time verification code (OTP)
+Undergo multi-step verification for security
+Responsibility: Verify user credentials, Generate verification code (OTP), Multi-step verification
+
+Collaborator: User
+
+Class: Database
+
+Use Cases:
+
+Save new user registration details
+Retrieve user details upon login
+Save new art listings
+Retrieve art listings for browsing
+Responsibility: Store user details, Retrieve user details, Store art listings, Retrieve art listings
+
+Collaborator: User, ArtListing
