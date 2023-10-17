@@ -1,1 +1,34 @@
-
+System Request - Art Gallery
+Project Sponsor: Tharun Jamal, Haris Roshan Shaik
+Business Need:
+Art Gallery is a significant platform, seamlessly bringing together 
+artists and a large community of art lovers. With the help of this 
+platform, artists can promote their works while giving customers a
+simple way to find and buy one-of-a-kind items.
+Business Requirements:
+1.Establish distinct user roles (Artists, Buyers) with individualized 
+profiles.
+2.Establish a mechanism for user interaction through 
+communication.
+3.Make a profile and art collection exploring possible.
+4.Ensure robust user authentication and authorization protocols.
+Business Value:
+The Art Gallery initiative establishes a user-friendly platform 
+connecting artists and buyers. It encourages artists to showcase 
+and monetize their work while providing buyers with an intuitive 
+interface to explore diverse artworks. Through direct messaging, 
+it fosters collaboration and personalized art experiences. The 
+platform's curation enhances the buying process, making art 
+more accessible and enjoyable. Additionally, it serves as an 
+educational resource, enriching art appreciation.
+Special Issues or Constraints:
+To heighten platform security, we need to introduce a multi-step 
+verification system, sending OTPs to registered contact 
+information. The insistence on precise contact details deters the 
+creation of anonymous or unverified accounts, fostering a secure 
+and trustworthy community.
+It's crucial to introduce the site to reputable artists and art fans to
+build user recognition. By ensuring widespread accessibility and 
+exposure, this outreach effort will draw in a wide range of users.
+It is imperative to ensure that the project is designed for 
+scalability as the user base may grow in the future.
