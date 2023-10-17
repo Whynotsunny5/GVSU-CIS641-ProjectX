@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e7b9de;
+    background-color: #f6afe8;
     margin: 0;
     padding: 0;
 }
@@ -12,8 +12,8 @@ header, nav, section, footer {
 }
 
 header {
-    background-color: #efceaf;
-    color: #ec9898;
+    background-color: #deb48c;
+    color: #4f2a2a;
     text-align: center;
 }
 
