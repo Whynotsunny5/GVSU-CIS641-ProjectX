@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f6afe8;
+    background-color: #3a3539;
     margin: 0;
     padding: 0;
 }
@@ -12,7 +12,7 @@ header, nav, section, footer {
 }
 
 header {
-    background-color: #deb48c;
+    background-color: #cfbda7;
     color: #4f2a2a;
     text-align: center;
 }
@@ -20,7 +20,7 @@ header {
 nav ul {
     list-style-type: none;
     padding: 0;
-    background-color: #97c1e0;
+    background-color: #cfbda7;
     overflow: hidden;
 }
 
@@ -30,23 +30,23 @@ nav ul li {
 
 nav ul li a {
     display: block;
-    color: #f8b6b6;
+    color: #4f2a2a;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 nav ul li a:hover {
-    background-color: #f7d1d1;
+    background-color: #cfbda7;
 }
 
 section {
-    background-color: #edb3b3;
+    background-color: #cfbda7;
     padding: 20px;
-    border: 1px solid #e7b1b1;
+    border: 1px solid #cfbda7;
 }
 
 footer {
-    background-color: #412b2b;
-    color: #e69494;
+    background-color: #cfbda7;
+    color: #4f2a2a;
     text-align: center;
 }
