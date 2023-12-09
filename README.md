@@ -11,24 +11,27 @@ Art Gallery is a significant platform, seamlessly bringing together artists and 
 * [Tharun Jamal](https://github.com/Whynotsunny5/GVSU-CIS641-ProjectX)
 
 ## Prerequisites
-1.Visual Studio code
 
-.Step 1: Visit the official website of the Visual Studio Code using any web browser like Google Chrome, Microsoft Edge, etc.
-.Press the “Download for Windows” button on the website to start the download of the Visual Studio Code Application.
-.When the download finishes, then the Visual Studio Code icon appears in the downloads folder.
-.Click on the installer icon to start the installation process of the Visual Studio Code.
-.After the Installer opens, it will ask you for accepting the terms and conditions of the Visual Studio Code. Click on I accept the agreement and then click the Next button.
-.Choose the location data for running the Visual Studio Code. It will then ask you for browsing the location. Then click on Next button.
-.Then it will ask for beginning the installing setup. Click on the Install button.
-.After clicking on Install, it will take about 1 minute to install the Visual Studio Code on your device.
-.After the Installation setup for Visual Studio Code is finished, it will show a window like this below. Tick the “Launch Visual Studio Code” checkbox and then click Next.
-.After the previous step, the Visual Studio Code window opens successfully. Now you can create a new file in the Visual Studio Code window and choose a language of yours to begin your programming journey! 
+Ensure Visual Studio Code is installed.
 
-## Run Instructions
--Install visual studio
--Open the 641 project final folder.
--Go to artgallery backend folder in terminal.
--Start the server by running the command node server.js
--open another terminal and go to artgallery folder.
--start the application by running the command npm start.
--Now the user can signup or login.
+Installation Steps for Visual Studio Code:
+
+Visit the official Visual Studio Code website using any web browser like Google Chrome, Microsoft Edge, etc.
+Click on the "Download for Windows" button to initiate the download of the Visual Studio Code Application.
+Once the download completes, locate the Visual Studio Code icon in the downloads folder.
+Double-click on the installer icon to begin the installation process.
+Upon opening the Installer, you'll be prompted to accept the terms and conditions of Visual Studio Code. Click "I accept the agreement" and then click "Next."
+Choose the installation location for Visual Studio Code. You'll be asked to browse for the location. Click "Next" once selected.
+Proceed with the installation setup by clicking the "Install" button.
+The installation process typically takes around 1 minute to complete.
+After the installation finishes, a window confirming completion will appear. Check the "Launch Visual Studio Code" checkbox and click "Next."
+Visual Studio Code will open successfully. You can now create a new file within the Visual Studio Code window and select a programming language to begin your coding journey.
+## Instructions to Run the Application:
+
+Ensure Visual Studio Code is installed.
+Open the "641 project final" folder.
+Navigate to the "artgallery backend" folder in the terminal.
+Start the server by executing the command node server.js.
+Open another terminal window and go to the "artgallery" folder.
+Begin the application by running the command npm start.
+Users can now proceed to sign up or log in to the application.
