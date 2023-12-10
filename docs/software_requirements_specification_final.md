@@ -134,3 +134,31 @@ This section outlines the functional and non-functional requirements of the Art 
 * Gradual Rollout: Implement a phased approach for deployment, starting with small groups and gradually expanding to larger user bases.
 * Feedback and Improvement: Continuously gather feedback from users to improve the application's functionality and user experience.
 
+# Tracability Links :
+The section titled "Use Case - Requirement Traceability," "Class - Requirement Traceability," and "Activity - Requirement Traceability" aims to establish a connection or traceability between specific functionalities (use cases, classes, activities) within the system and the corresponding requirements they fulfill. This traceability matrix indicates which requirements are associated with each use case, class, or activity. It's a crucial reference to ensure that every functionality within the system is aligned with the specified requirements as defined in the Software Requirements Specification (SRS).
+
+## Use Case - Requirement Traceability
+
+| Use Case Name | Requirement ID |
+| :-------------: | :----------: |
+| Register User | FR1, FR2, FR3; NFR1, NFR2, NFR3 |
+| Login User | FR3; NFR1, NFR3 |
+| Manage Profile | FR4, FR5; FR17, FR23; NFR3 |
+| View Art Listing | FR11; NFR7 |
+| Logout User | FR4 |
+
+## Class - Requirement Traceability
+
+| Class Name | Requirement ID |
+| :-------------: | :----------: |
+| ArtListing | FR11, FR12, FR13, FR14, FR15 |
+| User | FR1, FR2, FR3, FR4, FR5, FR17, FR23; NFR1, NFR2, NFR3 |
+| Profile | FR4, FR5, FR17, FR23; NFR3 |
+
+## Activity - Requirement Traceability
+
+| Activity Name | Requirement ID |
+| :-------------: | :----------: |
+| User Registration | FR1, FR2, FR3; NFR1, NFR2, NFR3 |
+| Art Listing | FR11, FR12, FR13, FR14, FR15; NFR7 |
+
