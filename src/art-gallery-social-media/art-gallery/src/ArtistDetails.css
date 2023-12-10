@@ -1,0 +1,50 @@
+/* ArtistDetails.css */
+.artist-details-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .artist-details-heading {
+    color: #2a2a72; /* Dark blue */
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .artist-detail {
+    color: #4a4a4a; /* Dark gray */
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 5px solid #2a2a72; /* Dark blue */
+  }
+  
+  .loading {
+    text-align: center;
+    font-size: 22px;
+    color: #666;
+  }
+  
+  .detail-label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Add some hover effects for interactivity */
+  .artist-detail:hover {
+    color: #2a2a72;
+    transition: color 0.3s ease-in-out;
+  }
+  

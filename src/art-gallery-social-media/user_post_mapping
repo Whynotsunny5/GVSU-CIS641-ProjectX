@@ -1,0 +1,811 @@
+\c hyperswitch_db
+\c hyperswitch_db;
+q
+\q
+create user cloud with password 'scape';
+grant all on DATABASE hyperswitch_db to cloud;
+\c hyperswitch_db;
+\dt
+CREATE TABLE device_binding (
+  id varchar(45) NOT NULL,
+  device_details text,
+  merchant_id varchar(45),
+  merchant_customer_id varchar(45),
+  device_status varchar(10),
+  device_serial varchar(45),
+  device_public_key text,
+  date_created timestamp DEFAULT CURRENT_TIMESTAMP,
+  last_modified timestamp DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+CREATE TABLE token_customer (
+  id varchar(255) NOT NULL,
+  customer_id varchar(255) NOT NULL,
+  locker_id varchar(255) NOT NULL,
+  network_customer_id varchar(255) NOT NULL,
+  date_created timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  last_modified timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
+ls
+INSERT INTO locker_token_requestor (id, requestor_id, token_requestor_id, network, date_created, last_modified, active, primary_requestor, requestor_name, requestor_type)
+VALUES ('1','m0010_udit_juspay','bhoomika_mastercard_prod','MASTERCARD','2021-09-07 13:25:29','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('2','udit_par','juspay_mastercard_par','MASTERCARD','2022-12-14 05:02:59','2023-04-05 06:49:26',0,1,'UDITP','TOKEN'),
+       ('2dt6KQVZt9nQK4Wy','bhoomika12','x8P2PHCi5zgVV8wJ','WIBMO','2023-04-05 03:15:32','2023-04-05 03:15:32',0,1,'BHOOMIKA','TOKEN'),
+       ('6Keyq1SQoLfVjAbt','bhoomika234','sJMXBYNE6H1C5362','WIBMO','2023-04-05 02:24:25','2023-04-05 02:24:25',0,1,'BHOOMIKA','TOKEN'),
+       ('amex','udit_juspay','juspay_amex','AMEX','2022-09-26 12:01:52','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('daKA6FdiLKrHATVK','bhoomika','oueMUZa9yZ3BE3hA','WIBMO','2023-04-05 02:22:18','2023-04-05 02:22:18',0,1,'BHOOMIKA','TOKEN'),
+       ('diners','udit_juspay','juspay_wibmo','WIBMO','2022-07-14 10:38:10','2023-04-05 09:54:47',0,1,'Times Internet Limited','TOKEN'),
+       ('hKq2BAopi2VVUz4X','bhoomika4','ncPEtCDz51hvRQ5J','WIBMO','2023-04-05 02:27:42','2023-04-05 02:27:42',0,1,'BHOOMIKA','TOKEN'),
+       ('jqWHTBoVHoGrnTh4','harsha','jCRkuPnFFiBZ5HZA','WIBMO','2023-04-05 04:25:46','2023-04-05 04:25:46',0,1,'Harsha','TOKEN'),
+       ('o4q1roBDNQpzD36L','shashi1','g1hEj8JzNhz5GL3U','WIBMO','2023-04-05 01:34:21','2023-04-05 01:34:21',0,1,'BHOOMIKA','TOKEN'),
+       ('pAV8NkSUM55o7Lmm','shashi','3xCC8HKH4ABu9xcD','WIBMO','2023-04-05 01:33:28','2023-04-05 01:33:28',0,1,'BHOOMIKA','TOKEN'),
+       ('sandbox','udit_juspay','juspay_mastercard_sbx','MASTERCARD','2022-10-19 07:48:48','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('sqSV75octfkvuaop','harsha1','kj1Xk3QccM2RW8qa','WIBMO','2023-04-05 05:53:52','2023-04-05 05:53:52',0,1,'Harsha','TOKEN'),
+       ('ujxeVfFLvoe1sxke','bhoomikau','jvoJsENi5VPu97xg','WIBMO','2023-04-06 06:34:50','2023-04-06 06:34:50',0,1,'Bhoomika','TOKEN'),
+       ('visa','udit_juspay','juspay_visa','VISA','2022-07-14 09:53:28','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('vTRWSBe4sVFHZkez','shashi3','rRVkccvdvXvZspHQ','WIBMO','2023-04-05 01:34:49','2023-04-05 01:34:49',0,1,'BHOOMIKA','TOKEN');
+INSERT INTO locker_token_requestor (id, requestor_id, token_requestor_id, network, date_created, last_modified, active, primary_requestor, requestor_name, requestor_type)
+VALUES ('1','m0010_udit_juspay','bhoomika_mastercard_prod','MASTERCARD','2021-09-07 13:25:29','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('2','udit_par','juspay_mastercard_par','MASTERCARD','2022-12-14 05:02:59','2023-04-05 06:49:26',0,1,'UDITP','TOKEN'),
+       ('2dt6KQVZt9nQK4Wy','bhoomika12','x8P2PHCi5zgVV8wJ','WIBMO','2023-04-05 03:15:32','2023-04-05 03:15:32',0,1,'BHOOMIKA','TOKEN'),
+       ('6Keyq1SQoLfVjAbt','bhoomika234','sJMXBYNE6H1C5362','WIBMO','2023-04-05 02:24:25','2023-04-05 02:24:25',0,1,'BHOOMIKA','TOKEN'),
+       ('amex','udit_juspay','juspay_amex','AMEX','2022-09-26 12:01:52','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('daKA6FdiLKrHATVK','bhoomika','oueMUZa9yZ3BE3hA','WIBMO','2023-04-05 02:22:18','2023-04-05 02:22:18',0,1,'BHOOMIKA','TOKEN'),
+       ('diners','udit_juspay','juspay_wibmo','WIBMO','2022-07-14 10:38:10','2023-04-05 09:54:47',0,1,'Times Internet Limited','TOKEN'),
+       ('hKq2BAopi2VVUz4X','bhoomika4','ncPEtCDz51hvRQ5J','WIBMO','2023-04-05 02:27:42','2023-04-05 02:27:42',0,1,'BHOOMIKA','TOKEN'),
+       ('jqWHTBoVHoGrnTh4','harsha','jCRkuPnFFiBZ5HZA','WIBMO','2023-04-05 04:25:46','2023-04-05 04:25:46',0,1,'Harsha','TOKEN'),
+       ('o4q1roBDNQpzD36L','shashi1','g1hEj8JzNhz5GL3U','WIBMO','2023-04-05 01:34:21','2023-04-05 01:34:21',0,1,'BHOOMIKA','TOKEN'),
+       ('pAV8NkSUM55o7Lmm','shashi','3xCC8HKH4ABu9xcD','WIBMO','2023-04-05 01:33:28','2023-04-05 01:33:28',0,1,'BHOOMIKA','TOKEN'),
+       ('sandbox','udit_juspay','juspay_mastercard_sbx','MASTERCARD','2022-10-19 07:48:48','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('sqSV75octfkvuaop','harsha1','kj1Xk3QccM2RW8qa','WIBMO','2023-04-05 05:53:52','2023-04-05 05:53:52',0,1,'Harsha','TOKEN'),
+       ('ujxeVfFLvoe1sxke','bhoomikau','jvoJsENi5VPu97xg','WIBMO','2023-04-06 06:34:50','2023-04-06 06:34:50',0,1,'Bhoomika','TOKEN'),
+       ('visa','udit_juspay','juspay_visa','VISA','2022-07-14 09:53:28','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('vTRWSBe4sVFHZkez','shashi3','rRVkccvdvXvZspHQ','WIBMO','2023-04-05 01:34:49','2023-04-05 01:34:49',0,1,'BHOOMIKA','TOKEN');
+;
+INSERT INTO locker_token_requestor (id, requestor_id, token_requestor_id, network, date_created, last_modified, active, primary_requestor, requestor_name, requestor_type)
+VALUES ('1','m0010_udit_juspay','bhoomika_mastercard_prod','MASTERCARD','2021-09-07 13:25:29','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('2','udit_par','juspay_mastercard_par','MASTERCARD','2022-12-14 05:02:59','2023-04-05 06:49:26',0,1,'UDITP','TOKEN'),
+       ('2dt6KQVZt9nQK4Wy','bhoomika12','x8P2PHCi5zgVV8wJ','WIBMO','2023-04-05 03:15:32','2023-04-05 03:15:32',0,1,'BHOOMIKA','TOKEN'),
+       ('6Keyq1SQoLfVjAbt','bhoomika234','sJMXBYNE6H1C5362','WIBMO','2023-04-05 02:24:25','2023-04-05 02:24:25',0,1,'BHOOMIKA','TOKEN'),
+       ('amex','udit_juspay','juspay_amex','AMEX','2022-09-26 12:01:52','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('daKA6FdiLKrHATVK','bhoomika','oueMUZa9yZ3BE3hA','WIBMO','2023-04-05 02:22:18','2023-04-05 02:22:18',0,1,'BHOOMIKA','TOKEN'),
+       ('diners','udit_juspay','juspay_wibmo','WIBMO','2022-07-14 10:38:10','2023-04-05 09:54:47',0,1,'Times Internet Limited','TOKEN'),
+       ('hKq2BAopi2VVUz4X','bhoomika4','ncPEtCDz51hvRQ5J','WIBMO','2023-04-05 02:27:42','2023-04-05 02:27:42',0,1,'BHOOMIKA','TOKEN'),
+       ('jqWHTBoVHoGrnTh4','harsha','jCRkuPnFFiBZ5HZA','WIBMO','2023-04-05 04:25:46','2023-04-05 04:25:46',0,1,'Harsha','TOKEN'),
+       ('o4q1roBDNQpzD36L','shashi1','g1hEj8JzNhz5GL3U','WIBMO','2023-04-05 01:34:21','2023-04-05 01:34:21',0,1,'BHOOMIKA','TOKEN'),
+       ('pAV8NkSUM55o7Lmm','shashi','3xCC8HKH4ABu9xcD','WIBMO','2023-04-05 01:33:28','2023-04-05 01:33:28',0,1,'BHOOMIKA','TOKEN'),
+       ('sandbox','udit_juspay','juspay_mastercard_sbx','MASTERCARD','2022-10-19 07:48:48','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('sqSV75octfkvuaop','harsha1','kj1Xk3QccM2RW8qa','WIBMO','2023-04-05 05:53:52','2023-04-05 05:53:52',0,1,'Harsha','TOKEN'),
+       ('ujxeVfFLvoe1sxke','bhoomikau','jvoJsENi5VPu97xg','WIBMO','2023-04-06 06:34:50','2023-04-06 06:34:50',0,1,'Bhoomika','TOKEN'),
+       ('visa','udit_juspay','juspay_visa','VISA','2022-07-14 09:53:28','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('vTRWSBe4sVFHZkez','shashi3','rRVkccvdvXvZspHQ','WIBMO','2023-04-05 01:34:49','2023-04-05 01:34:49',0,1,'BHOOMIKA','TOKEN');
+CREATE TABLE Token (
+  id varchar(255) NOT NULL,
+  locker_token_requestor_id varchar(255),
+  locker_customer_id varchar(255),
+  token_reference_id varchar(255),
+  provisioned_token_id varchar(255),
+  token_type varchar(255),
+  token_status varchar(255),
+  enrolled_pan_id varchar(255),
+  device_binding_id varchar(255),
+  exp_month varchar(255),
+  exp_year varchar(255),
+  last4 varchar(255),
+  bin varchar(10),
+  date_created timestamp DEFAULT CURRENT_TIMESTAMP,
+  last_modified timestamp DEFAULT CURRENT_TIMESTAMP,
+  internal_udfs text,
+  external_udfs text,
+  authenticated_by varchar(255),
+  txn_uuid varchar(255),
+  PRIMARY KEY (id)
+);
+CREATE INDEX idx_provision_id ON Token (provisioned_token_id);
+CREATE INDEX idx_token_reference_id ON Token (token_reference_id);
+CREATE TABLE enrolled_pan (
+  id varchar(255) NOT NULL,
+  enrollment_status text,
+  locker_token_requestor_id varchar(255),
+  locker_customer_id varchar(255),
+  pan_enrollment_id varchar(255),
+  presentation_type varchar(255),
+  last4_digits varchar(4),
+  exp_month varchar(4),
+  exp_year varchar(4),
+  name_on_card varchar(255),
+  card_isin varchar(6),
+  nickname varchar(255),
+  date_created timestamp DEFAULT CURRENT_TIMESTAMP,
+  last_modified timestamp DEFAULT CURRENT_TIMESTAMP,
+  card_fingerprint varchar(255),
+  card_global_fingerprint varchar(255),
+  internal_udfs text,
+  par varchar(255),
+  external_udfs text,
+  PRIMARY KEY (id)
+);
+CREATE INDEX pan_enrollement_idx ON enrolled_pan (pan_enrollment_id);
+CREATE TABLE token_requestor (
+  id varchar(45) NOT NULL,
+  scheme text,
+  credentials text,
+  date_created timestamp DEFAULT CURRENT_TIMESTAMP,
+  last_modified timestamp DEFAULT CURRENT_TIMESTAMP,
+  parent varchar(255),
+  identifier varchar(255),
+  PRIMARY KEY (id)
+);
+CREATE TABLE locker_token_requestor (
+  id varchar(255) NOT NULL,
+  locker_id varchar(255) NOT NULL,
+  token_requestor_id varchar(255) NOT NULL,
+  scheme varchar(45),
+  date_created timestamp DEFAULT CURRENT_TIMESTAMP,
+  last_modified timestamp DEFAULT CURRENT_TIMESTAMP,
+  testmode boolean,
+  is_enabled boolean DEFAULT true,
+  locker_name varchar(255),
+  service varchar(32),
+  PRIMARY KEY (id),
+  CONSTRAINT locker_token_requestor_locker_id_scheme_key UNIQUE (locker_id, scheme)
+);
+CREATE TABLE token_bin_info (
+  token_bin varchar(64) NOT NULL,
+  card_bin varchar(64) NOT NULL,
+  provider varchar(64) NOT NULL,
+  date_created timestamp DEFAULT NULL,
+  last_updated timestamp DEFAULT NULL,
+  PRIMARY KEY (token_bin)
+);
+INSERT INTO locker_token_requestor (id, requestor_id, token_requestor_id, network, date_created, last_modified, active, primary_requestor, requestor_name, requestor_type)
+VALUES ('1','m0010_udit_juspay','bhoomika_mastercard_prod','MASTERCARD','2021-09-07 13:25:29','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('2','udit_par','juspay_mastercard_par','MASTERCARD','2022-12-14 05:02:59','2023-04-05 06:49:26',0,1,'UDITP','TOKEN'),
+       ('2dt6KQVZt9nQK4Wy','bhoomika12','x8P2PHCi5zgVV8wJ','WIBMO','2023-04-05 03:15:32','2023-04-05 03:15:32',0,1,'BHOOMIKA','TOKEN'),
+       ('6Keyq1SQoLfVjAbt','bhoomika234','sJMXBYNE6H1C5362','WIBMO','2023-04-05 02:24:25','2023-04-05 02:24:25',0,1,'BHOOMIKA','TOKEN'),
+       ('amex','udit_juspay','juspay_amex','AMEX','2022-09-26 12:01:52','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('daKA6FdiLKrHATVK','bhoomika','oueMUZa9yZ3BE3hA','WIBMO','2023-04-05 02:22:18','2023-04-05 02:22:18',0,1,'BHOOMIKA','TOKEN'),
+       ('diners','udit_juspay','juspay_wibmo','WIBMO','2022-07-14 10:38:10','2023-04-05 09:54:47',0,1,'Times Internet Limited','TOKEN'),
+       ('hKq2BAopi2VVUz4X','bhoomika4','ncPEtCDz51hvRQ5J','WIBMO','2023-04-05 02:27:42','2023-04-05 02:27:42',0,1,'BHOOMIKA','TOKEN'),
+       ('jqWHTBoVHoGrnTh4','harsha','jCRkuPnFFiBZ5HZA','WIBMO','2023-04-05 04:25:46','2023-04-05 04:25:46',0,1,'Harsha','TOKEN'),
+       ('o4q1roBDNQpzD36L','shashi1','g1hEj8JzNhz5GL3U','WIBMO','2023-04-05 01:34:21','2023-04-05 01:34:21',0,1,'BHOOMIKA','TOKEN'),
+       ('pAV8NkSUM55o7Lmm','shashi','3xCC8HKH4ABu9xcD','WIBMO','2023-04-05 01:33:28','2023-04-05 01:33:28',0,1,'BHOOMIKA','TOKEN'),
+       ('sandbox','udit_juspay','juspay_mastercard_sbx','MASTERCARD','2022-10-19 07:48:48','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('sqSV75octfkvuaop','harsha1','kj1Xk3QccM2RW8qa','WIBMO','2023-04-05 05:53:52','2023-04-05 05:53:52',0,1,'Harsha','TOKEN'),
+       ('ujxeVfFLvoe1sxke','bhoomikau','jvoJsENi5VPu97xg','WIBMO','2023-04-06 06:34:50','2023-04-06 06:34:50',0,1,'Bhoomika','TOKEN'),
+       ('visa','udit_juspay','juspay_visa','VISA','2022-07-14 09:53:28','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('vTRWSBe4sVFHZkez','shashi3','rRVkccvdvXvZspHQ','WIBMO','2023-04-05 01:34:49','2023-04-05 01:34:49',0,1,'BHOOMIKA','TOKEN');
+desc locker_token_requestor;
+\d locker_token_requestor;
+\d locker_token_requestor;
+select * from locker_token_reqquestor;
+select * from locker_token_reqquestor;
+select * from locker_token_requestor;
+INSERT INTO locker_token_requestor (id, locker_id, token_requestor_id, scheme, date_created, last_modified, test_mode, is_enabled, locker_name, service)
+VALUES ('1','m0010_udit_juspay','bhoomika_mastercard_prod','MASTERCARD','2021-09-07 13:25:29','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('2','udit_par','juspay_mastercard_par','MASTERCARD','2022-12-14 05:02:59','2023-04-05 06:49:26',0,1,'UDITP','TOKEN'),
+       ('2dt6KQVZt9nQK4Wy','bhoomika12','x8P2PHCi5zgVV8wJ','WIBMO','2023-04-05 03:15:32','2023-04-05 03:15:32',0,1,'BHOOMIKA','TOKEN'),
+       ('6Keyq1SQoLfVjAbt','bhoomika234','sJMXBYNE6H1C5362','WIBMO','2023-04-05 02:24:25','2023-04-05 02:24:25',0,1,'BHOOMIKA','TOKEN'),
+       ('amex','udit_juspay','juspay_amex','AMEX','2022-09-26 12:01:52','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('daKA6FdiLKrHATVK','bhoomika','oueMUZa9yZ3BE3hA','WIBMO','2023-04-05 02:22:18','2023-04-05 02:22:18',0,1,'BHOOMIKA','TOKEN'),
+       ('diners','udit_juspay','juspay_wibmo','WIBMO','2022-07-14 10:38:10','2023-04-05 09:54:47',0,1,'Times Internet Limited','TOKEN'),
+       ('hKq2BAopi2VVUz4X','bhoomika4','ncPEtCDz51hvRQ5J','WIBMO','2023-04-05 02:27:42','2023-04-05 02:27:42',0,1,'BHOOMIKA','TOKEN'),
+       ('jqWHTBoVHoGrnTh4','harsha','jCRkuPnFFiBZ5HZA','WIBMO','2023-04-05 04:25:46','2023-04-05 04:25:46',0,1,'Harsha','TOKEN'),
+       ('o4q1roBDNQpzD36L','shashi1','g1hEj8JzNhz5GL3U','WIBMO','2023-04-05 01:34:21','2023-04-05 01:34:21',0,1,'BHOOMIKA','TOKEN'),
+       ('pAV8NkSUM55o7Lmm','shashi','3xCC8HKH4ABu9xcD','WIBMO','2023-04-05 01:33:28','2023-04-05 01:33:28',0,1,'BHOOMIKA','TOKEN'),
+       ('sandbox','udit_juspay','juspay_mastercard_sbx','MASTERCARD','2022-10-19 07:48:48','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('sqSV75octfkvuaop','harsha1','kj1Xk3QccM2RW8qa','WIBMO','2023-04-05 05:53:52','2023-04-05 05:53:52',0,1,'Harsha','TOKEN'),
+       ('ujxeVfFLvoe1sxke','bhoomikau','jvoJsENi5VPu97xg','WIBMO','2023-04-06 06:34:50','2023-04-06 06:34:50',0,1,'Bhoomika','TOKEN'),
+       ('visa','udit_juspay','juspay_visa','VISA','2022-07-14 09:53:28','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('vTRWSBe4sVFHZkez','shashi3','rRVkccvdvXvZspHQ','WIBMO','2023-04-05 01:34:49','2023-04-05 01:34:49',0,1,'BHOOMIKA','TOKEN');
+INSERT INTO locker_token_requestor (id, locker_id, token_requestor_id, scheme, date_created, last_modified, testmode, is_enabled, locker_name, service)
+VALUES ('1','m0010_udit_juspay','bhoomika_mastercard_prod','MASTERCARD','2021-09-07 13:25:29','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('2','udit_par','juspay_mastercard_par','MASTERCARD','2022-12-14 05:02:59','2023-04-05 06:49:26',0,1,'UDITP','TOKEN'),
+       ('2dt6KQVZt9nQK4Wy','bhoomika12','x8P2PHCi5zgVV8wJ','WIBMO','2023-04-05 03:15:32','2023-04-05 03:15:32',0,1,'BHOOMIKA','TOKEN'),
+       ('6Keyq1SQoLfVjAbt','bhoomika234','sJMXBYNE6H1C5362','WIBMO','2023-04-05 02:24:25','2023-04-05 02:24:25',0,1,'BHOOMIKA','TOKEN'),
+       ('amex','udit_juspay','juspay_amex','AMEX','2022-09-26 12:01:52','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('daKA6FdiLKrHATVK','bhoomika','oueMUZa9yZ3BE3hA','WIBMO','2023-04-05 02:22:18','2023-04-05 02:22:18',0,1,'BHOOMIKA','TOKEN'),
+       ('diners','udit_juspay','juspay_wibmo','WIBMO','2022-07-14 10:38:10','2023-04-05 09:54:47',0,1,'Times Internet Limited','TOKEN'),
+       ('hKq2BAopi2VVUz4X','bhoomika4','ncPEtCDz51hvRQ5J','WIBMO','2023-04-05 02:27:42','2023-04-05 02:27:42',0,1,'BHOOMIKA','TOKEN'),
+       ('jqWHTBoVHoGrnTh4','harsha','jCRkuPnFFiBZ5HZA','WIBMO','2023-04-05 04:25:46','2023-04-05 04:25:46',0,1,'Harsha','TOKEN'),
+       ('o4q1roBDNQpzD36L','shashi1','g1hEj8JzNhz5GL3U','WIBMO','2023-04-05 01:34:21','2023-04-05 01:34:21',0,1,'BHOOMIKA','TOKEN'),
+       ('pAV8NkSUM55o7Lmm','shashi','3xCC8HKH4ABu9xcD','WIBMO','2023-04-05 01:33:28','2023-04-05 01:33:28',0,1,'BHOOMIKA','TOKEN'),
+       ('sandbox','udit_juspay','juspay_mastercard_sbx','MASTERCARD','2022-10-19 07:48:48','2023-04-05 06:49:26',1,1,'UDIT','TOKEN'),
+       ('sqSV75octfkvuaop','harsha1','kj1Xk3QccM2RW8qa','WIBMO','2023-04-05 05:53:52','2023-04-05 05:53:52',0,1,'Harsha','TOKEN'),
+       ('ujxeVfFLvoe1sxke','bhoomikau','jvoJsENi5VPu97xg','WIBMO','2023-04-06 06:34:50','2023-04-06 06:34:50',0,1,'Bhoomika','TOKEN'),
+       ('visa','udit_juspay','juspay_visa','VISA','2022-07-14 09:53:28','2023-04-05 06:49:26',0,1,'UDIT','TOKEN'),
+       ('vTRWSBe4sVFHZkez','shashi3','rRVkccvdvXvZspHQ','WIBMO','2023-04-05 01:34:49','2023-04-05 01:34:49',0,1,'BHOOMIKA','TOKEN');
+INSERT INTO locker_token_requestor (id, locker_id, token_requestor_id, scheme, date_created, last_modified, testmode, is_enabled, locker_name, service)
+VALUES 
+('1', 'm0010_udit_juspay', 'bhoomika_mastercard_prod', 'MASTERCARD', '2021-09-07 13:25:29', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('2', 'udit_par', 'juspay_mastercard_par', 'MASTERCARD', '2022-12-14 05:02:59', '2023-04-05 06:49:26', false, true, 'UDITP', 'TOKEN'),
+('2dt6KQVZt9nQK4Wy', 'bhoomika12', 'x8P2PHCi5zgVV8wJ', 'WIBMO', '2023-04-05 03:15:32', '2023-04-05 03:15:32', false, true, 'BHOOMIKA', 'TOKEN'),
+('6Keyq1SQoLfVjAbt', 'bhoomika234', 'sJMXBYNE6H1C5362', 'WIBMO', '2023-04-05 02:24:25', '2023-04-05 02:24:25', false, true, 'BHOOMIKA', 'TOKEN'),
+('amex', 'udit_juspay', 'juspay_amex', 'AMEX', '2022-09-26 12:01:52', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('daKA6FdiLKrHATVK', 'bhoomika', 'oueMUZa9yZ3BE3hA', 'WIBMO', '2023-04-05 02:22:18', '2023-04-05 02:22:18', false, true, 'BHOOMIKA', 'TOKEN'),
+('diners', 'udit_juspay', 'juspay_wibmo', 'WIBMO', '2022-07-14 10:38:10', '2023-04-05 09:54:47', false, true, 'Times Internet Limited', 'TOKEN'),
+('hKq2BAopi2VVUz4X', 'bhoomika4', 'ncPEtCDz51hvRQ5J', 'WIBMO', '2023-04-05 02:27:42', '2023-04-05 02:27:42', false, true, 'BHOOMIKA', 'TOKEN'),
+('jqWHTBoVHoGrnTh4', 'harsha', 'jCRkuPnFFiBZ5HZA', 'WIBMO', '2023-04-05 04:25:46', '2023-04-05 04:25:46', false, true, 'Harsha', 'TOKEN'),
+('o4q1roBDNQpzD36L', 'shashi1', 'g1hEj8JzNhz5GL3U', 'WIBMO',
+INSERT INTO locker_token_requestor (id, locker_id, token_requestor_id, scheme, date_created, last_modified, testmode, is_enabled, locker_name, service)
+VALUES 
+('1', 'm0010_udit_juspay', 'bhoomika_mastercard_prod', 'MASTERCARD', '2021-09-07 13:25:29', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('2', 'udit_par', 'juspay_mastercard_par', 'MASTERCARD', '2022-12-14 05:02:59', '2023-04-05 06:49:26', false, true, 'UDITP', 'TOKEN'),
+('2dt6KQVZt9nQK4Wy', 'bhoomika12', 'x8P2PHCi5zgVV8wJ', 'WIBMO', '2023-04-05 03:15:32', '2023-04-05 03:15:32', false, true, 'BHOOMIKA', 'TOKEN'),
+('6Keyq1SQoLfVjAbt', 'bhoomika234', 'sJMXBYNE6H1C5362', 'WIBMO', '2023-04-05 02:24:25', '2023-04-05 02:24:25', false, true, 'BHOOMIKA', 'TOKEN'),
+('amex', 'udit_juspay', 'juspay_amex', 'AMEX', '2022-09-26 12:01:52', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('daKA6FdiLKrHATVK', 'bhoomika', 'oueMUZa9yZ3BE3hA', 'WIBMO', '2023-04-05 02:22:18', '2023-04-05 02:22:18', false, true, 'BHOOMIKA', 'TOKEN'),
+('diners', 'udit_juspay', 'juspay_wibmo', 'WIBMO', '2022-07-14 10:38:10', '2023-04-05 09:54:47', false, true, 'Times Internet Limited', 'TOKEN'),
+('hKq2BAopi2VVUz4X', 'bhoomika4', 'ncPEtCDz51hvRQ5J', 'WIBMO', '2023-04-05 02:27:42', '2023-04-05 02:27:42', false, true, 'BHOOMIKA', 'TOKEN'),
+('jqWHTBoVHoGrnTh4', 'harsha', 'jCRkuPnFFiBZ5HZA', 'WIBMO', '2023-04-05 04:25:46', '2023-04-05 04:25:46', false, true, 'Harsha', 'TOKEN'),
+('o4q1roBDNQpzD36L', 'shashi1', 'g1hEj8JzNhz5GL3U', 'WIBMO',
+;
+);
+INSERT INTO locker_token_requestor (id, locker_id, token_requestor_id, scheme, date_created, last_modified, testmode, is_enabled, locker_name, service)
+VALUES 
+('1', 'm0010_udit_juspay', 'bhoomika_mastercard_prod', 'MASTERCARD', '2021-09-07 13:25:29', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('2', 'udit_par', 'juspay_mastercard_par', 'MASTERCARD', '2022-12-14 05:02:59', '2023-04-05 06:49:26', false, true, 'UDITP', 'TOKEN'),
+('2dt6KQVZt9nQK4Wy', 'bhoomika12', 'x8P2PHCi5zgVV8wJ', 'WIBMO', '2023-04-05 03:15:32', '2023-04-05 03:15:32', false, true, 'BHOOMIKA', 'TOKEN'),
+('6Keyq1SQoLfVjAbt', 'bhoomika234', 'sJMXBYNE6H1C5362', 'WIBMO', '2023-04-05 02:24:25', '2023-04-05 02:24:25', false, true, 'BHOOMIKA', 'TOKEN'),
+('amex', 'udit_juspay', 'juspay_amex', 'AMEX', '2022-09-26 12:01:52', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('daKA6FdiLKrHATVK', 'bhoomika', 'oueMUZa9yZ3BE3hA', 'WIBMO', '2023-04-05 02:22:18', '2023-04-05 02:22:18', false, true, 'BHOOMIKA', 'TOKEN'),
+('diners', 'udit_juspay', 'juspay_wibmo', 'WIBMO', '2022-07-14 10:38:10', '2023-04-05 09:54:47', false, true, 'Times Internet Limited', 'TOKEN'),
+('hKq2BAopi2VVUz4X', 'bhoomika4', 'ncPEtCDz51hvRQ5J', 'WIBMO', '2023-04-05 02:27:42', '2023-04-05 02:27:42', false, true, 'BHOOMIKA', 'TOKEN'),
+('jqWHTBoVHoGrnTh4', 'harsha', 'jCRkuPnFFiBZ5HZA', 'WIBMO', '2023-04-05 04:25:46', '2023-04-05 04:25:46', false, true, 'Harsha', 'TOKEN'),
+('o4q1roBDNQpzD36L', 'shashi1', 'g1hEj8JzNhz5GL3U', 'WIBMO', '2023-04-05 01:34:21', '2023-04-05 01:34:21', false, true, 'BHOOMIKA', 'TOKEN'),
+('pAV8NkSUM55o7Lmm', 'shashi', '3xCC8HKH4ABu9xcD', 'WIBMO', '2023-04-05 01:33:28', '2023-04-05 01:33:28', false, true, 'BHOOMIKA', 'TOKEN'),
+('sandbox', 'udit_juspay', 'juspay_mastercard_sbx', 'MASTERCARD', '2022-10-19 07:48:48', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('sqSV75octfkvuaop', 'harsha1', 'kj1Xk3QccM2RW8qa', 'WIBMO', '2023-04-05 05:53:52', '2023-04-05 05:53:52', false, true, 'Harsha', 'TOKEN'),
+('ujxeVfFLvoe1sxke', 'bhoomikau', 'jvoJsENi5VPu97xg', 'WIBMO', '2023-04-06 06:34:50', '2023-04-06 06:34:50', false, true, 'Bhoomika', 'TOKEN'),
+('visa', 'udit_juspay', 'juspay_visa', 'VISA', '2022-07-14 09:53:28', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('vTRWSBe4sVFHZkez', 'shashi3', 'rRVkccvdvXvZspHQ', 'WIBMO', '2023-04-05 01:34:49', '2023-04-05 01:34:49', false, true, 'BHOOMIKA', 'TOKEN');
+INSERT INTO locker_token_requestor (id, locker_id, token_requestor_id, scheme, date_created, last_modified, testmode, is_enabled, locker_name, service)
+VALUES 
+('1', 'm0010_udit_juspay', 'bhoomika_mastercard_prod', 'MASTERCARD', '2021-09-07 13:25:29', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('2', 'udit_par', 'juspay_mastercard_par', 'MASTERCARD', '2022-12-14 05:02:59', '2023-04-05 06:49:26', false, true, 'UDITP', 'TOKEN'),
+('2dt6KQVZt9nQK4Wy', 'bhoomika12', 'x8P2PHCi5zgVV8wJ', 'WIBMO', '2023-04-05 03:15:32', '2023-04-05 03:15:32', false, true, 'BHOOMIKA', 'TOKEN'),
+('6Keyq1SQoLfVjAbt', 'bhoomika234', 'sJMXBYNE6H1C5362', 'WIBMO', '2023-04-05 02:24:25', '2023-04-05 02:24:25', false, true, 'BHOOMIKA', 'TOKEN'),
+('amex', 'udit_juspay', 'juspay_amex', 'AMEX', '2022-09-26 12:01:52', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('daKA6FdiLKrHATVK', 'bhoomika', 'oueMUZa9yZ3BE3hA', 'WIBMO', '2023-04-05 02:22:18', '2023-04-05 02:22:18', false, true, 'BHOOMIKA', 'TOKEN'),
+('diners', 'udit_juspay', 'juspay_wibmo', 'WIBMO', '2022-07-14 10:38:10', '2023-04-05 09:54:47', false, true, 'Times Internet Limited', 'TOKEN'),
+('hKq2BAopi2VVUz4X', 'bhoomika4', 'ncPEtCDz51hvRQ5J', 'WIBMO', '2023-04-05 02:27:42', '2023-04-05 02:27:42', false, true, 'BHOOMIKA', 'TOKEN'),
+('jqWHTBoVHoGrnTh4', 'harsha', 'jCRkuPnFFiBZ5HZA', 'WIBMO', '2023-04-05 04:25:46', '2023-04-05 04:25:46', false, true, 'Harsha', 'TOKEN'),
+('o4q1roBDNQpzD36L', 'shashi1', 'g1hEj8JzNhz5GL3U', 'WIBMO', '2023-04-05 01:34:21', '2023-04-05 01:34:21', false, true, 'BHOOMIKA', 'TOKEN'),
+('pAV8NkSUM55o7Lmm', 'shashi', '3xCC8HKH4ABu9xcD', 'WIBMO', '2023-04-05 01:33:28', '2023-04-05 01:33:28', false, true, 'BHOOMIKA', 'TOKEN'),
+('sandbox', 'udit_juspay', 'juspay_mastercard_sbx', 'MASTERCARD', '2022-10-19 07:48:48', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('sqSV75octfkvuaop', 'harsha1', 'kj1Xk3QccM2RW8qa', 'WIBMO', '2023-04-05 05:53:52', '2023-04-05 05:53:52', false, true, 'Harsha', 'TOKEN'),
+('ujxeVfFLvoe1sxke', 'bhoomikau', 'jvoJsENi5VPu97xg', 'WIBMO', '2023-04-06 06:34:50', '2023-04-06 06:34:50', false, true, 'Bhoomika', 'TOKEN'),
+('visa', 'udit_juspay', 'juspay_visa', 'VISA', '2022-07-14 09:53:28', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('vTRWSBe4sVFHZkez', 'shashi3', 'rRVkccvdvXvZspHQ', 'WIBMO', '2023-04-05 01:34:49', '2023-04-05 01:34:49', false, true, 'BHOOMIKA', 'TOKEN');q
+\d
+INSERT INTO locker_token_requestor (id, locker_id, token_requestor_id, scheme, date_created, last_modified, testmode, is_enabled, locker_name, service)
+VALUES 
+('1', 'm0010_udit_juspay', 'bhoomika_mastercard_prod', 'MASTERCARD', '2021-09-07 13:25:29', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('2', 'udit_par', 'juspay_mastercard_par', 'MASTERCARD', '2022-12-14 05:02:59', '2023-04-05 06:49:26', false, true, 'UDITP', 'TOKEN'),
+('2dt6KQVZt9nQK4Wy', 'bhoomika12', 'x8P2PHCi5zgVV8wJ', 'WIBMO', '2023-04-05 03:15:32', '2023-04-05 03:15:32', false, true, 'BHOOMIKA', 'TOKEN'),
+('6Keyq1SQoLfVjAbt', 'bhoomika234', 'sJMXBYNE6H1C5362', 'WIBMO', '2023-04-05 02:24:25', '2023-04-05 02:24:25', false, true, 'BHOOMIKA', 'TOKEN'),
+('amex', 'udit_juspay', 'juspay_amex', 'AMEX', '2022-09-26 12:01:52', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('daKA6FdiLKrHATVK', 'bhoomika', 'oueMUZa9yZ3BE3hA', 'WIBMO', '2023-04-05 02:22:18', '2023-04-05 02:22:18', false, true, 'BHOOMIKA', 'TOKEN'),
+('diners', 'udit_juspay', 'juspay_wibmo', 'WIBMO', '2022-07-14 10:38:10', '2023-04-05 09:54:47', false, true, 'Times Internet Limited', 'TOKEN'),
+('hKq2BAopi2VVUz4X', 'bhoomika4', 'ncPEtCDz51hvRQ5J', 'WIBMO', '2023-04-05 02:27:42', '2023-04-05 02:27:42', false, true, 'BHOOMIKA', 'TOKEN'),
+('jqWHTBoVHoGrnTh4', 'harsha', 'jCRkuPnFFiBZ5HZA', 'WIBMO', '2023-04-05 04:25:46', '2023-04-05 04:25:46', false, true, 'Harsha', 'TOKEN'),
+('o4q1roBDNQpzD36L', 'shashi1', 'g1hEj8JzNhz5GL3U', 'WIBMO',
+INSERT INTO locker_token_requestor (id, locker_id, token_requestor_id, scheme, date_created, last_modified, testmode, is_enabled, locker_name, service)
+VALUES 
+('1', 'm0010_udit_juspay', 'bhoomika_mastercard_prod', 'MASTERCARD', '2021-09-07 13:25:29', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('2', 'udit_par', 'juspay_mastercard_par', 'MASTERCARD', '2022-12-14 05:02:59', '2023-04-05 06:49:26', false, true, 'UDITP', 'TOKEN'),
+('2dt6KQVZt9nQK4Wy', 'bhoomika12', 'x8P2PHCi5zgVV8wJ', 'WIBMO', '2023-04-05 03:15:32', '2023-04-05 03:15:32', false, true, 'BHOOMIKA', 'TOKEN'),
+('6Keyq1SQoLfVjAbt', 'bhoomika234', 'sJMXBYNE6H1C5362', 'WIBMO', '2023-04-05 02:24:25', '2023-04-05 02:24:25', false, true, 'BHOOMIKA', 'TOKEN'),
+('amex', 'udit_juspay', 'juspay_amex', 'AMEX', '2022-09-26 12:01:52', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('daKA6FdiLKrHATVK', 'bhoomika', 'oueMUZa9yZ3BE3hA', 'WIBMO', '2023-04-05 02:22:18', '2023-04-05 02:22:18', false, true, 'BHOOMIKA', 'TOKEN'),
+('diners', 'udit_juspay', 'juspay_wibmo', 'WIBMO', '2022-07-14 10:38:10', '2023-04-05 09:54:47', false, true, 'Times Internet Limited', 'TOKEN'),
+('hKq2BAopi2VVUz4X', 'bhoomika4', 'ncPEtCDz51hvRQ5J', 'WIBMO', '2023-04-05 02:27:42', '2023-04-05 02:27:42', false, true, 'BHOOMIKA', 'TOKEN'),
+('jqWHTBoVHoGrnTh4', 'harsha', 'jCRkuPnFFiBZ5HZA', 'WIBMO', '2023-04-05 04:25:46', '2023-04-05 04:25:46', false, true, 'Harsha', 'TOKEN'),
+('o4q1roBDNQpzD36L', 'shashi1', 'g1hEj8JzNhz5GL3U', 'WIBMO',
+;
+);
+INSERT INTO locker_token_requestor (id, locker_id, token_requestor_id, scheme, date_created, last_modified, testmode, is_enabled, locker_name, service)
+VALUES 
+('1', 'm0010_udit_juspay', 'bhoomika_mastercard_prod', 'MASTERCARD', '2021-09-07 13:25:29', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('2', 'udit_par', 'juspay_mastercard_par', 'MASTERCARD', '2022-12-14 05:02:59', '2023-04-05 06:49:26', false, true, 'UDITP', 'TOKEN'),
+('2dt6KQVZt9nQK4Wy', 'bhoomika12', 'x8P2PHCi5zgVV8wJ', 'WIBMO', '2023-04-05 03:15:32', '2023-04-05 03:15:32', false, true, 'BHOOMIKA', 'TOKEN'),
+('6Keyq1SQoLfVjAbt', 'bhoomika234', 'sJMXBYNE6H1C5362', 'WIBMO', '2023-04-05 02:24:25', '2023-04-05 02:24:25', false, true, 'BHOOMIKA', 'TOKEN'),
+('amex', 'udit_juspay', 'juspay_amex', 'AMEX', '2022-09-26 12:01:52', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('daKA6FdiLKrHATVK', 'bhoomika', 'oueMUZa9yZ3BE3hA', 'WIBMO', '2023-04-05 02:22:18', '2023-04-05 02:22:18', false, true, 'BHOOMIKA', 'TOKEN'),
+('diners', 'udit_juspay', 'juspay_wibmo', 'WIBMO', '2022-07-14 10:38:10', '2023-04-05 09:54:47', false, true, 'Times Internet Limited', 'TOKEN'),
+('hKq2BAopi2VVUz4X', 'bhoomika4', 'ncPEtCDz51hvRQ5J', 'WIBMO', '2023-04-05 02:27:42', '2023-04-05 02:27:42', false, true, 'BHOOMIKA', 'TOKEN'),
+('jqWHTBoVHoGrnTh4', 'harsha', 'jCRkuPnFFiBZ5HZA', 'WIBMO', '2023-04-05 04:25:46', '2023-04-05 04:25:46', false, true, 'Harsha', 'TOKEN'),
+('o4q1roBDNQpzD36L', 'shashi1', 'g1hEj8JzNhz5GL3U', 'WIBMO', '2023-04-05 01:34:21', '2023-04-05 01:34:21', false, true, 'BHOOMIKA', 'TOKEN'),
+('pAV8NkSUM55o7Lmm', 'shashi', '3xCC8HKH4ABu9xcD', 'WIBMO', '2023-04-05 01:33:28', '2023-04-05 01:33:28', false, true, 'BHOOMIKA', 'TOKEN'),
+('sandbox', 'udit_juspay', 'juspay_mastercard_sbx', 'MASTERCARD', '2022-10-19 07:48:48', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('sqSV75octfkvuaop', 'harsha1', 'kj1Xk3QccM2RW8qa', 'WIBMO', '2023-04-05 05:53:52', '2023-04-05 05:53:52', false, true, 'Harsha', 'TOKEN'),
+('ujxeVfFLvoe1sxke', 'bhoomikau', 'jvoJsENi5VPu97xg', 'WIBMO', '2023-04-06 06:34:50', '2023-04-06 06:34:50', false, true, 'Bhoomika', 'TOKEN'),
+('visa', 'udit_juspay', 'juspay_visa', 'VISA', '2022-07-14 09:53:28', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('vTRWSBe4sVFHZkez', 'shashi3', 'rRVkccvdvXvZspHQ', 'WIBMO', '2023-04-05 01:34:49', '2023-04-05 01:34:49', false, true, 'BHOOMIKA', 'TOKEN');
+INSERT INTO locker_token_requestor (id, locker_id, token_requestor_id, scheme, date_created, last_modified, testmode, is_enabled, locker_name, service)
+VALUES 
+('1', 'm0010_udit_juspay', 'bhoomika_mastercard_prod', 'MASTERCARD', '2021-09-07 13:25:29', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('2', 'udit_par', 'juspay_mastercard_par', 'MASTERCARD', '2022-12-14 05:02:59', '2023-04-05 06:49:26', false, true, 'UDITP', 'TOKEN'),
+('2dt6KQVZt9nQK4Wy', 'bhoomika12', 'x8P2PHCi5zgVV8wJ', 'WIBMO', '2023-04-05 03:15:32', '2023-04-05 03:15:32', false, true, 'BHOOMIKA', 'TOKEN'),
+('6Keyq1SQoLfVjAbt', 'bhoomika234', 'sJMXBYNE6H1C5362', 'WIBMO', '2023-04-05 02:24:25', '2023-04-05 02:24:25', false, true, 'BHOOMIKA', 'TOKEN'),
+('amex', 'udit_juspay', 'juspay_amex', 'AMEX', '2022-09-26 12:01:52', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('daKA6FdiLKrHATVK', 'bhoomika', 'oueMUZa9yZ3BE3hA', 'WIBMO', '2023-04-05 02:22:18', '2023-04-05 02:22:18', false, true, 'BHOOMIKA', 'TOKEN'),
+('diners', 'udit_juspay', 'juspay_wibmo', 'WIBMO', '2022-07-14 10:38:10', '2023-04-05 09:54:47', false, true, 'Times Internet Limited', 'TOKEN'),
+('hKq2BAopi2VVUz4X', 'bhoomika4', 'ncPEtCDz51hvRQ5J', 'WIBMO', '2023-04-05 02:27:42', '2023-04-05 02:27:42', false, true, 'BHOOMIKA', 'TOKEN'),
+('jqWHTBoVHoGrnTh4', 'harsha', 'jCRkuPnFFiBZ5HZA', 'WIBMO', '2023-04-05 04:25:46', '2023-04-05 04:25:46', false, true, 'Harsha', 'TOKEN'),
+('o4q1roBDNQpzD36L', 'shashi1', 'g1hEj8JzNhz5GL3U', 'WIBMO', '2023-04-05 01:34:21', '2023-04-05 01:34:21', false, true, 'BHOOMIKA', 'TOKEN'),
+('pAV8NkSUM55o7Lmm', 'shashi', '3xCC8HKH4ABu9xcD', 'WIBMO', '2023-04-05 01:33:28', '2023-04-05 01:33:28', false, true, 'BHOOMIKA', 'TOKEN'),
+('sandbox', 'udit_juspay', 'juspay_mastercard_sbx', 'MASTERCARD', '2022-10-19 07:48:48', '2023-04-05 06:49:26', true, true, 'UDIT', 'TOKEN'),
+('sqSV75octfkvuaop', 'harsha1', 'kj1Xk3QccM2RW8qa', 'WIBMO', '2023-04-05 05:53:52', '2023-04-05 05:53:52', false, true, 'Harsha', 'TOKEN'),
+('ujxeVfFLvoe1sxke', 'bhoomikau', 'jvoJsENi5VPu97xg', 'WIBMO', '2023-04-06 06:34:50', '2023-04-06 06:34:50', false, true, 'Bhoomika', 'TOKEN'),
+('visa', 'udit_juspay', 'juspay_visa', 'VISA', '2022-07-14 09:53:28', '2023-04-05 06:49:26', false, true, 'UDIT', 'TOKEN'),
+('vTRWSBe4sVFHZkez', 'shashi3', 'rRVkccvdvXvZspHQ', 'WIBMO', '2023-04-05 01:34:49', '2023-04-05 01:34:49', false, true, 'BHOOMIKA', 'TOKEN');
+select * from locker_token_reqquestor;
+select * from locker_token_requestor;
+select * from locker_token_requestor;
+q
+\q
+\c hyperswitch_db;
+select 
+;
+select * from refunds;
+\dt
+select * from refund;
+\x
+select * from refund;
+select * from refund;
+select * from payment_attemnpt;
+select * from payment_attempt;
+select * from payment_attempt;
+select * from payment_intent;
+select * from payment_intent;
+select * from payment_attempt;
+select * from payment_attempt;
+select * from payment_connectors;
+\dt
+\x
+\dt
+select * from merchant_connector_account;
+\x
+select * from merchant_connector_account;
+delete from merchant_connector_account where id = 3;
+select * from connector_response;
+\x
+\dt
+\x
+\dt
+\x
+\dt
+select * from payment_intent;
+\x
+select * from payment_intent;
+delete from merchant_connector_account where id = 3;
+delete from merchant_connector_account where id = 4;
+delete from merchant_connector_account where id = 5;
+select * from payment_attempt where payment_id= "pay_gxpG15eKT3O09JRNhDWv"
+;
+select * from payment_attempt where payment_id= 'pay_gxpG15eKT3O09JRNhDWv';
+select * from payment_attempt where payment_id= 'pay_gxpG15eKT3O09JRNhDWv';
+select * from payment_attempt where payment_id= 'pay_gxpG15eKT3O09JRNhDWv';
+select * from payment_attempt where payment_id= 'pay_gxpG15eKT3O09JRNhDWv';
+select * from payment_intent where payment_id = 'pay_KXTxO9mhBUhJNCJL6K7y';
+select * from payment_attempt where payment_id= 'pay_KXTxO9mhBUhJNCJL6K7y';
+select * from payment_attempt where payment_id= 'pay_eQ5CqeiFXIizO2lNGmIg';
+\q
+\c hyperswitch_db
+\dt
+\q
+\d mandate
+\c hyperswitch_db 
+\d mandate
+\x
+\d mandate
+\x
+\d mandate
+\x
+\d mandate
+\d mandate
+\d payment_intent
+\dt
+\x
+\dt
+\d cards_info
+select * from cards_info
+;
+q
+\d cards_info;
+select * from payment_attempt where payment_id like 'pay_vKQpMDzoEQ5Kb4zQy7FC'
+;
+select * from payment_attempt where payment_id = 'pay_vKQpMDzoEQ5Kb4zQy7FC';
+select * from payment_attempt where payment_id = 'pay_vKQpMDzoEQ5Kb4zQy7FC';
+\x
+select * from payment_attempt where payment_id = 'pay_vKQpMDzoEQ5Kb4zQy7FC';
+\c
+\q
+\quit
+\c hyperswitch_db
+\d payment_attempt
+\q
+diesel migration --database-url postgres://$DB_USER:$DB_PASS@localhost:5432/$DB_NAME run
+q
+\q
+\c hyperswitch_db 
+\dt
+select * from configs;l
+select * from payment_intent where payment_id='pay_hjapw9025EXXdeAmm5v7_1';
+select * from payment_intent where payment_id='pay_hjapw9025EXXdeAmm5v7_1';
+select * from payment_attempt where attempt_id='pay_hjapw9025EXXdeAmm5v7_1';
+select * from payment_attempt where attempt_id='pay_hjapw9025EXXdeAmm5v7_1'\x;
+select * from payment_attempt where attempt_id='pay_hjapw9025EXXdeAmm5v7_1';
+\x
+select * from payment_attempt where attempt_id='pay_hjapw9025EXXdeAmm5v7_1';
+select * from payment_attempt where attempt_id='pay_hjapw9025EXXdeAmm5v7_1';
+select * from payment_intent where payment_id= 'pay_hjapw9025EXXdeAmm5v7'
+;
+select * from payment_intent where payment_id= 'pay_hjapw9025EXXdeAmm5v7'
+;
+select * from payment_intent where payment_id= 'pay_hjapw9025EXXdeAmm5v7'
+;
+select * from payment_intent where payment_id= 'pay_hjapw9025EXXdeAmm5v7'
+;
+select * from payment_attempt where attempt_id='pay_hjapw9025EXXdeAmm5v7_1';
+select * from payment_attempt where attempt_id='pay_hjapw9025EXXdeAmm5v7_1';
+select * from payment_attempt where attempt_id='pay_f6XLtRBFnM4n5yqhXQIP_1';
+select * from payment_intent where payment_id= 'pay_f6XLtRBFnM4n5yqhXQIP'
+;
+\d payment_intent
+\quit
+\c hyperswitch_db
+]drt
+\dt
+select * from merchant_connector_account;
+select * from merchant_connector_account\G;
+select * from merchant_connector_account\x;
+select * from merchant_connector_account;
+select * from merchant_connector_account;
+select * from merchant_connector_account\x;
+select * from merchant_connector_account\g;
+\x
+select * from merchant_connector_account\g;
+select * from merchant_connector_account;
+select * from merchant_connector_account;
+\dt
+\x
+\dt
+select * from merchant_key_store\G;
+select * from merchant_key_store;
+select * from merchant_key_store;
+select * from merchant_connector_account;
+\x
+select * from merchant_connector_account;
+select * from merchant_connector_account;
+\quit
+\c hyperswitch_db
+\dt
+\d merchant_connector_account
+\q
+\quit
+\c hyperswitch_db 
+select * from payment_intents where payment_id = 'pay_v4SpRKkhxf2QBSezCDYi'
+;
+select * from payment_intent where payment_id = 'pay_v4SpRKkhxf2QBSezCDYi'
+;
+\x
+select * from payment_intent where payment_id = 'pay_v4SpRKkhxf2QBSezCDYi'
+;
+\q
+\c hyperswitch_db 
+select * from merchant_account where merchant_id='niteshballa-1692783834'
+;
+\x
+select * from merchant_account where merchant_id='niteshballa-1692783834'
+;
+\c hyperswitch_db 
+CREATE TYPE "ReconStatus" AS ENUM ('requested','active', 'disabled','not_requested');
+ALTER TABLE merchant_account ADD recon_status "ReconStatus" NOT NULL DEFAULT "ReconStatus"('not_requested');
+\c hyperswitch_db 
+\dt
+select * from merchant_connector_account;
+select * from merchant_connector_account\g\x\g;
+\x
+select * from merchant_connector_account;
+\x
+select * from merchant_connector_account;
+select * from merchant_connector_account;
+\c hyperswitch_db 
+alter table payment_intent add column merchant_decision VARCHAR(64);
+\c hyperswitch_db 
+ALTER TABLE business_profile
+ADD COLUMN IF NOT EXISTS applepay_verified_domains text[];
+\c hyperswitch_db 
+ALTER TABLE payment_attempt
+ADD COLUMN IF NOT EXISTS amount_capturable BIGINT NOT NULL DEFAULT 0;
+\c hyperswitch_db 
+ALTER TABLE payment_intent
+ADD COLUMN IF NOT EXISTS payment_confirm_source "PaymentSource";
+ALTER TABLE payment_intent
+ADD COLUMN IF NOT EXISTS payment_confirm_source "PaymentSource";
+CREATE TYPE "PaymentSource" AS ENUM (
+    'merchant_server',
+    'postman',
+    'dashboard',
+    'sdk'
+);
+
+ALTER TABLE payment_intent
+ADD COLUMN IF NOT EXISTS payment_confirm_source "PaymentSource";
+ALTER TABLE file_metadata
+ADD COLUMN IF NOT EXISTS profile_id VARCHAR(64);
+
+ALTER TABLE payment_intent
+ALTER COLUMN business_country DROP NOT NULL;
+
+ALTER TABLE payment_intent
+ALTER COLUMN business_label DROP NOT NULL;
+
+ALTER TABLE merchant_connector_account
+ALTER COLUMN business_country DROP NOT NULL;
+
+ALTER TABLE merchant_connector_account
+ALTER COLUMN business_label DROP NOT NULL;
+
+ALTER TABLE merchant_connector_account
+ALTER COLUMN connector_label DROP NOT NULL;
+
+DROP INDEX IF EXISTS merchant_connector_account_merchant_id_connector_label_index;
+
+CREATE UNIQUE INDEX IF NOT EXISTS merchant_connector_account_profile_id_connector_id_index ON merchant_connector_account(profile_id, connector_name);
+
+CREATE UNIQUE INDEX IF NOT EXISTS business_profile_merchant_id_profile_name_index ON business_profile(merchant_id, profile_name);
+\c hyperswitch_db 
+ALTER TABLE file_metadata
+ADD COLUMN IF NOT EXISTS profile_id VARCHAR(64);
+
+ALTER TABLE payment_intent
+ALTER COLUMN business_country DROP NOT NULL;
+
+ALTER TABLE payment_intent
+ALTER COLUMN business_label DROP NOT NULL;
+
+ALTER TABLE merchant_connector_account
+ALTER COLUMN business_country DROP NOT NULL;
+
+ALTER TABLE merchant_connector_account
+ALTER COLUMN business_label DROP NOT NULL;
+
+ALTER TABLE merchant_connector_account
+ALTER COLUMN connector_label DROP NOT NULL;
+
+DROP INDEX IF EXISTS merchant_connector_account_merchant_id_connector_label_index;
+
+CREATE UNIQUE INDEX IF NOT EXISTS merchant_connector_account_profile_id_connector_id_index ON merchant_connector_account(profile_id, connector_name);
+
+CREATE UNIQUE INDEX IF NOT EXISTS business_profile_merchant_id_profile_name_index ON business_profile(merchant_id, profile_name);
+CREATE UNIQUE INDEX IF NOT EXISTS merchant_connector_account_profile_id_connector_id_index ON merchant_connector_account(profile_id, connector_name);
+
+CREATE UNIQUE INDEX IF NOT EXISTS business_profile_merchant_id_profile_name_index ON business_profile(merchant_id, profile_name);
+CREATE UNIQUE INDEX IF NOT EXISTS merchant_connector_account_profile_id_connector_id_index ON merchant_connector_account(profile_id, connector_name);
+
+CREATE UNIQUE INDEX IF NOT EXISTS business_profile_merchant_id_profile_name_index ON business_profile(merchant_id, profile_name);
+\c hyperswitch_db 
+ALTER TABLE business_profile
+ADD COLUMN IF NOT EXISTS applepay_verified_domains text[];
+ALTER TABLE merchant_connector_account
+ADD COLUMN IF NOT EXISTS applepay_verified_domains text[];
+\c hyperswitch_db 
+\dt
+\c hyperswitch_db 
+select * from payment_intent where payment_id='pay_u0hgzK6w2eC3e1jmswMS'
+;
+select * from payment_intent where payment_id='pay_u0hgzK6w2eC3e1jmswMS'
+;\x
+select * from payment_intent where payment_id='pay_u0hgzK6w2eC3e1jmswMS'
+;
+select * from payment_intent where payment_id='pay_u0hgzK6w2eC3e1jmswMS'
+;
+select * from payment_intent where payment_id='pay_u0hgzK6w2eC3e1jmswMS'
+;
+\c hyperswitch_db 
+ALTER TABLE merchant_connector_account ADD COLUMN IF NOT EXISTS pm_auth_config JSONB DEFAULT NULL;
+ALTER TYPE "ConnectorType" ADD VALUE 'payment_method_auth';
+ALTER TABLE payment_attempt
+ADD COLUMN IF NOT EXISTS surcharge_metadata JSONB DEFAULT NULL;
+-- Your SQL goes here
+ALTER TABLE merchant_connector_account ADD COLUMN IF NOT EXISTS pm_auth_config JSONB DEFAULT NULL;
+ALTER TYPE "ConnectorType" ADD VALUE 'payment_method_auth';
+-- Your SQL goes here
+ALTER TABLE address ALTER COLUMN id DROP NOT NULL;
+-- Your SQL goes here
+ALTER TABLE address ADD COLUMN payment_id VARCHAR(64);
+ALTER TABLE customers ADD COLUMN address_id VARCHAR(64);
+ALTER TABLE merchant_connector_account
+ADD COLUMN IF NOT EXISTS applepay_verified_domains text[];
+-- Your SQL goes here
+CREATE TYPE "PaymentSource" AS ENUM (
+    'merchant_server',
+    'postman',
+    'dashboard',
+    'sdk'
+);
+
+ALTER TABLE payment_intent
+ADD COLUMN IF NOT EXISTS payment_confirm_source "PaymentSource";
+ALTER TABLE business_profile
+ADD COLUMN IF NOT EXISTS applepay_verified_domains text[];
+-- Your SQL goes here
+ALTER TABLE payment_attempt
+ADD COLUMN IF NOT EXISTS amount_capturable BIGINT NOT NULL DEFAULT 0;
+-- Your SQL goes here
+ALTER TABLE payment_methods ADD COLUMN IF NOT EXISTS payment_method_data BYTEA DEFAULT NULL;
+\dt
+drop hyperswitch_db;
+\c
+\c db
+\c hyperswitch_db
+UPDATE merchant_account
+SET organization_id = 'org_abcdefghijklmn'
+WHERE organization_id IS NULL;
+
+ALTER TABLE merchant_account
+ALTER COLUMN organization_id
+SET NOT NULL;
+\c hyperswitch_db 
+ALTER TABLE merchant_account
+ALTER COLUMN organization_id
+SET NOT NULL;
+ALTER TABLE mandate ADD COLUMN original_payment_id VARCHAR(64);
+-- Your SQL goes here
+ALTER TYPE "EventClass" ADD VALUE 'mandates';
+
+ALTER TYPE "EventObjectType" ADD VALUE 'mandate_details';
+
+ALTER TYPE "EventType" ADD VALUE 'mandate_active';
+
+ALTER TYPE "EventType" ADD VALUE 'mandate_revoked';
+-- Your SQL goes here
+ALTER TABLE payment_attempt
+ADD COLUMN IF NOT EXISTS surcharge_metadata JSONB DEFAULT NULL;
+-- Your SQL goes here
+UPDATE merchant_account
+SET organization_id = 'org_abcdefghijklmn'
+WHERE organization_id IS NULL;
+
+ALTER TABLE merchant_account
+ALTER COLUMN organization_id
+SET NOT NULL;
+\d merchant_account
+CREATE DATABASE hyperswitch_db
+\c hyperswitch_db
+CREATE DATABASE hyperswitch_db;
+CREATE DATABASE hyperswitch_db;
+\i /Users/nitesh.balla/Downloads/schema.sql
+CREATE ROLE db_user LOGIN;
+\i /Users/nitesh.balla/Downloads/schema.sql
+\q
+drop hyperswitch_db;
+drop database hyperswitch_db;
+CREATE DATABASE hyperswitch_db;
+drop database hyperswitch_db;
+CREATE DATABASE hyperswitch_db;
+\c hyperswitch_db 
+\i combined_up.sql
+\c
+drop hyperswitch_db;
+drop hyperswitch_db
+;
+drop database hyperswitch_db;
+drop database hyperswitch_db 
+;
+\c hyperswitch_db 
+\dty
+\dt
+drop database hyperswitch_db;
+drop database hyperswitch_db;
+CREATE INDEX payment_attempt_connector_transaction_id_merchant_id_index ON payment_attempt (connector_transaction_id, merchant_id);
+\c hyperswitch_db 
+CREATE INDEX payment_attempt_connector_transaction_id_merchant_id_index ON payment_attempt (connector_transaction_id, merchant_id);
+drop database hyperswitch_db;
+drop hyperswitch_db
+;
+drop database hyperswitch_db;
+create database hyperswitch_db;
+drop database hyperswitch_db;
+create database hyperswitch_db;
+drop database hyperswitch_db;
+create database hyperswitch_db;
+drop database hyperswitch
+;
+create database hyperswitch;
+\c hyperswitch
+\dt
+\dt
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(60) NOT NULL
+);
+CREATE TABLE sessions (
+  id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL,
+  token VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT current_timestamp
+);
+CREATE INDEX idx_username ON users (username);
+CREATE INDEX idx_email ON users (email);
+ALTER TABLE users
+ADD COLUMN first_name VARCHAR(255),
+ADD COLUMN last_name VARCHAR(255);
+CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL REFERENCES users(id),
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  image_url VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT current_timestamp
+);
+CREATE TABLE comments (
+  id SERIAL PRIMARY KEY,
+  post_id INT NOT NULL REFERENCES posts(id),
+  user_id INT NOT NULL REFERENCES users(id),
+  text TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT current_timestamp
+);
+CREATE TABLE likes (
+  id SERIAL PRIMARY KEY,
+  post_id INT NOT NULL REFERENCES posts(id),
+  user_id INT NOT NULL REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT current_timestamp
+);
+CREATE TABLE user_post_mapping (
+  user_id INT NOT NULL REFERENCES users(id),
+  post_id INT NOT NULL REFERENCES posts(id),
+  PRIMARY KEY (user_id, post_id)
+);
+\dt
+\dt
+select * from users;
+select * from users;
+select * from messages;
+\dt
+CREATE TABLE messages (
+  id SERIAL PRIMARY KEY,
+  sender_id INTEGER REFERENCES users(id),
+  receiver_id INTEGER REFERENCES users(id),
+  content TEXT,
+  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+select * from users;
+select * from users;
+select * from users;
+select * from users;
+select * from users;
+select * from users;
+select * from users;
+select * from users;
+select * from users;
+\dt users
+\d users
+\d users
+select * from users
+;
+select * from users;
+\x
+select * from users;
+\c hyperswitch_db 
+ALTER TABLE merchant_connector_account
+ADD COLUMN status "ConnectorStatus" NOT NULL;
+CREATE TYPE "ConnectorStatus" AS ENUM ('active', 'inactive');
+
+ALTER TABLE merchant_connector_account
+ADD COLUMN status "ConnectorStatus" NOT NULL;
+\dt
+select * from posts;
+select * from users;
+\d posts
+ALTER TABLE posts
+ADD COLUMN price numeric NOT NULL DEFAULT 0;
+\t user_post_mapping
+\s user_post_mapping
+\s user_post_mapping

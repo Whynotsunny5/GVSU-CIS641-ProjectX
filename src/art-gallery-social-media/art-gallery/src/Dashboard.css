@@ -1,0 +1,79 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Lexend', sans-serif;
+  background-color: #f4f4f4; /* Set a light background color */
+}
+
+#root, .App {
+  height: 100%;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Prevent scrollbars */
+}
+
+.dashboard-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-nav button {
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  margin:auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.dashboard-nav button.active,
+.dashboard-nav button:hover {
+  background-color: #69a6e6;
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.dashboard-content {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto; /* Allow content to scroll */
+  background-color: #fff; /* Contrast against nav bar */
+}
+
+/* Show text next to icons for large screens */
+@media screen and (min-width: 768px) {
+  .dashboard-nav button span {
+    display: inline;
+  }
+}
+
+/* Additional styling for logout button */
+.dashboard-nav .logout-button {
+  margin-left: auto; /* Push the button to the far right */
+  background-color: #d9534f; /* Red color for emphasis */
+}
+
+.dashboard-nav .logout-button:hover {
+  background-color: #c9302c; /* Slightly darker on hover */
+}
+
+/* Ensure full coverage of the viewport */
+html, body, #root, .App {
+  height: 100%;
+  margin: 0;
+}

@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+  font-family: 'Lexend', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.heading {
+  margin-top: 5em;
+  font-size: 24px;
+  color: #333; /* Choose your preferred text color */
+  margin-bottom: 20px;
+}
+
+/* LoginForm Container to match form-container styles */
+.LoginForm {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* LoginForm Title to match form-container title styles */
+.LoginForm h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* LoginForm elements to match form-container elements */
+.LoginForm form {
+  display: flex;
+  flex-direction: column;
+}
+
+.LoginForm label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.LoginForm input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  display: block;
+  width: calc(100% - 24px);
+}
+
+/* Button styles to match form-container buttons */
+.LoginForm button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Lexend', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.LoginForm button:hover {
+  background-color: #0056b3;
+}
+
+/* Additional Styles for alignment */
+.LoginForm div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Account Actions styles to match form-container account actions */
+.account-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.account-actions a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.account-actions a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .LoginForm,
+  .form-container {
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+  }
+}
+
+.error-message {
+  color: #d8000c;
+  background-color: #ffbaba;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+}

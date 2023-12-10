@@ -1,0 +1,105 @@
+/* General Styles */
+body {
+  font-family: 'Lexend', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.heading {
+  margin-top: 5em;
+  font-size: 24px;
+  color: #333; /* Choose your preferred text color */
+  margin-bottom: 20px;
+}
+
+/* Form Container */
+.form-container {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Form Title */
+.form-container h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Form Elements */
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-container input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  display: block;
+  width: calc(100% - 24px); /* Adjust width to account for padding */
+}
+
+/* Button */
+.form-container button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-style: 'Lexend', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px; /* Added margin top for spacing */
+  width: 100%; /* Full width */
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Additional Styles for Alignment */
+.form-container div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Account Actions */
+.account-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.account-actions a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.account-actions a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #d8000c;
+  background-color: #ffbaba;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+}
