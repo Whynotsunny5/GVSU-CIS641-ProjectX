@@ -12,6 +12,7 @@ Time: 7 pm to 8 pm
 
 * Testing the behaviour and UI
 * Remove Bugs If available
+  
 **Goals for next week**
   
 * Prepare Power Point Presentation
