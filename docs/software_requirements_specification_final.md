@@ -162,3 +162,18 @@ The section titled "Use Case - Requirement Traceability," "Class - Requirement T
 | User Registration | FR1, FR2, FR3; NFR1, NFR2, NFR3 |
 | Art Listing | FR11, FR12, FR13, FR14, FR15; NFR7 |
 
+# Software Artifacts
+
+This section serves as a repository for the tangible outputs of our Art Gallery project. It provides hyperlinks to key artifacts developed. These artifacts collectively provide an in-depth understanding of the system's structure, functionality, and dynamic processes.
+
+* [ Link To ](https://github.com/Whynotsunny5/GVSU-CIS641-ProjectX/blob/main/artifacts/ACTIVITY%20DIAGRAMS.pdf) - Activity Diagrams
+
+* [ Link To ](https://github.com/Whynotsunny5/GVSU-CIS641-ProjectX/blob/main/artifacts/CRC%20Card) -CRC Card
+
+* [ Link To ](https://github.com/Whynotsunny5/GVSU-CIS641-ProjectX/blob/main/artifacts/System%20request) - System Request
+
+* [ Link To](https://github.com/Whynotsunny5/GVSU-CIS641-ProjectX/blob/main/artifacts/USE%20CASE%20DIAGRAMS.pdf) - Use Case Diagram
+
+* [ Link To ](https://github.com/Whynotsunny5/GVSU-CIS641-ProjectX/blob/main/artifacts/class%20diagram.pdf) - Class Diagrams
+
+* [ Link To](https://github.com/Whynotsunny5/GVSU-CIS641-ProjectX/blob/main/artifacts/object%20diagram.pdf) - Object Diagrams
