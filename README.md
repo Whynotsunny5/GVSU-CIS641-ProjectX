@@ -16,8 +16,7 @@ Art Gallery is a significant platform, seamlessly bringing together artists and 
   
 ## Instructions to Run the Application:
 
-* Ensure Visual Studio Code is installed.
-* Open the "641 project final" folder.
+* Open the "641 project" folder.
 * Navigate to the "artgallery backend" folder in the terminal.
 * Start the server by executing the command node server.js.
 * Open another terminal window and go to the "artgallery" folder.
